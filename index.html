@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outlet Factory</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <!-- LOGO -->
+    <div class="logo-container">
+        <img src="logo.png" alt="Outlet Factory" class="logo">
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="navigation">
+        <a href="index.html" class="active">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About Us</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- RIGHT SIDE -->
+    <div class="nav-right">
+
+        <!-- SEARCH -->
+        <div class="creative-search">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Search products..." 
+                onkeydown="if(event.key === 'Enter') searchProducts()"
+            >
+            <button class="search-btn" onclick="searchProducts()" aria-label="Search">
+                <span class="search-icon"></span>
+            </button>
+        </div>
+
+        <!-- SHOPPING CART -->
+        <button class="cart-btn" onclick="openCart()" aria-label="Shopping Cart">
+            <span class="cart-icon">
+                <span class="cart-body"></span>
+                <span class="cart-handle"></span>
+                <span class="cart-wheel wheel-one"></span>
+                <span class="cart-wheel wheel-two"></span>
+            </span>
+            <span id="cartCount" class="cart-count">0</span>
+        </button>
+
+    </div>
+
+</header>
+
+<!-- ================= HOME / HERO ================= -->
+
+<section id="home" class="hero">
+
+    <!-- LEFT SIDE -->
+    <div class="hero-left">
+        <div class="hero-small-title">
+            O U T L E T &nbsp; F A C T O R Y
+        </div>
+
+        <h1>EGYPT</h1>
+
+        <div class="hero-line">
+            <span></span>
+        </div>
+
+        <h2>Style. Quality. Value.</h2>
+
+        <h3>All in One Place.</h3>
+
+        <p>
+            Discover top brands and latest fashion
+            at unbeatable outlet prices.
+        </p>
+
+        <a href="products.html" class="explore-button" style="color: black; text-decoration: none; display: inline-block;">
+            <h4>Explore Collection <span>→</span></h4>
+        </a>
+
+        <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE IMAGE -->
+    <div class="hero-right">
+        <img src="image.jpg" alt="Outlet Collection">
+        <div class="new-arrival">
+            New<br>Arrival
+        </div>
+    </div>
+
+</section>
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features">
+
+    <div class="feature">
+        <div class="feature-circle">♢</div>
+        <div>
+            <h4>PREMIUM QUALITY</h4>
+            <p>Carefully selected products you can trust.</p>
+        </div>
+    </div>
+
+    <div class="feature">
+        <div class="feature-circle">◇</div>
+        <div>
+            <h4>BEST PRICES</h4>
+            <p>Top brands at unbeatable prices.</p>
+        </div>
+    </div>
+
+    <div class="feature">
+        <div class="feature-circle">♧</div>
+        <div>
+            <h4>BIG COLLECTION</h4>
+            <p>Wide variety of styles for men, women & kids.</p>
+        </div>
+    </div>
+
+    <div class="feature">
+        <div class="feature-circle">♡</div>
+        <div>
+            <h4>LOVE FASHION</h4>
+            <p>Trendy looks for every style and occasion.</p>
+        </div>
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer id="contact">
+
+    <div class="footer-container">
+
+        <!-- LOGO -->
+        <div class="footer-column footer-brand">
+            <img src="logo.png" alt="Outlet Factory" class="footer-logo">
+            <p>Premium Quality. Best Prices. Everyday.</p>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-column">
+            <h4>QUICK LINKS</h4>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <!-- CONTACT INFO -->
+        <div class="footer-column">
+            <h4>CONTACT INFO</h4>
+            <p>
+                <a href="https://wa.me/201010040888" target="_blank">
+                    📞 +20 101 004 0888
+                </a>
+            </p>
+            <p>
+                <a href="mailto:support@outletfactory.eg">
+                    ✉️ support@outletfactory.eg
+                </a>
+            </p>
+            <p>
+                <a href="https://maps.app.goo.gl/UzMBSrTcFnhgkeBr7" target="_blank">
+                    📍 ٦ اكتوبر - المحور المركزي - رنا مول - بعد الحصري والتوحيد والنور فوق لابوم
+                </a>
+            </p>
+        </div>
+
+        <!-- FOLLOW US -->
+        <div class="footer-column">
+            <h4>FOLLOW US</h4>
+            <div class="social-icons" style="display: flex; gap: 15px; font-size: 20px;">
+                <a href="https://www.facebook.com/share/193TJGwQ8N/" target="_blank" title="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/outletfactoryegypt?igsh=bGt4Mnh4ODNydWh0" target="_blank" title="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.threads.com/@outletfactoryegypt" target="_blank" title="Threads">
+                    <i class="fa-brands fa-threads"></i>
+                </a>
+                <a href="https://wa.me/201010040888" target="_blank" title="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 Outlet Factory Egypt. All Rights Reserved.
+        <h3>Done by: ENG Roaa Derbala</h3>
+    </div>
+
+</footer>
+
+<!-- ================= CART OVERLAY ================= -->
+
+<div id="cartOverlay" class="cart-overlay" onclick="closeCart()"></div>
+
+<!-- ================= SHOPPING BAG ================= -->
+
+<div id="cartSidebar" class="cart-sidebar">
+
+    <div class="cart-header">
+        <h2>Shopping Bag</h2>
+        <button onclick="closeCart()">×</button>
+    </div>
+
+    <div id="cartItems" class="cart-items"></div>
+
+    <div class="cart-bottom">
+        <div class="cart-total">
+            <span>Total</span>
+            <strong id="cartTotal">0 EGP</strong>
+        </div>
+        <button class="whatsapp-order" onclick="confirmOrder()">
+            💬 Confirm Order via WhatsApp
+        </button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

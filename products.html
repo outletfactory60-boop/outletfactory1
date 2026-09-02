@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Products | Outlet Factory</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="products.css">
+
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo-container">
+
+        <a href="index.html">
+
+            <img
+                src="logo.png"
+                alt="Outlet Factory"
+                class="logo">
+
+        </a>
+
+    </div>
+
+
+    <nav class="navigation">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="products.html" class="active">
+            Products
+        </a>
+
+        <a href="index.html#about">
+            About Us
+        </a>
+
+        <a href="index.html#contact">
+            Contact
+        </a>
+
+    </nav>
+
+
+    <div class="nav-right">
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+                oninput="searchProducts()">
+
+            <button onclick="searchProducts()">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </button>
+
+        </div>
+
+
+        <button
+            class="cart-button"
+            onclick="openCart()">
+
+            <i class="fa-solid fa-bag-shopping"></i>
+
+            <span id="cartCount">
+                0
+            </span>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= BREADCRUMB ================= -->
+
+<div class="breadcrumb">
+
+    <a href="index.html">
+
+        <i class="fa-solid fa-house"></i>
+
+    </a>
+
+    <span>/</span>
+
+    <span>Products</span>
+
+</div>
+
+
+
+<!-- ================= PRODUCTS PAGE ================= -->
+
+<main class="products-page">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-box">
+
+            <h3>
+                Categories
+            </h3>
+
+
+            <button
+                class="side-category"
+                data-category="men"
+                onclick="filterCategory('men')">
+
+                MEN
+
+            </button>
+
+
+            <button
+                class="side-category active"
+                data-category="women"
+                onclick="filterCategory('women')">
+
+                WOMEN
+
+            </button>
+
+
+           <button
+    class="side-category"
+    data-category="kids-boys"
+    onclick="filterCategory('kids-boys')">
+
+    BOYS
+
+</button>
+
+
+<button
+    class="side-category"
+    data-category="kids-girls"
+    onclick="filterCategory('kids-girls')">
+
+    GIRLS
+
+</button>
+        
+
+
+            <button
+                class="side-category"
+                data-category="offers"
+                onclick="filterCategory('offers')">
+
+                OFFERS
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ================= PRODUCTS CONTENT ================= -->
+
+    <section
+        class="products-content"
+        id="products">
+
+
+        <div class="products-header">
+
+            <div>
+
+                <h1 id="categoryTitle">
+                    Women
+                </h1>
+
+                <p>
+                    Discover our latest collection
+                </p>
+
+            </div>
+
+
+            <div class="sort-container">
+
+                <label>
+                    Sort by:
+                </label>
+
+                <select
+                    id="sortSelect"
+                    onchange="sortProducts()">
+
+                    <option value="newest">
+                        Newest
+                    </option>
+
+                    <option value="low">
+                        Price: Low to High
+                    </option>
+
+                    <option value="high">
+                        Price: High to Low
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= CATEGORY TABS ================= -->
+
+        <div class="category-tabs">
+
+            <button
+                class="category-tab"
+                data-category="men"
+                onclick="filterCategory('men')">
+
+                MEN
+
+            </button>
+
+
+            <button
+                class="category-tab active"
+                data-category="women"
+                onclick="filterCategory('women')">
+
+                WOMEN
+
+            </button>
+
+
+            <button
+    class="category-tab"
+    data-category="kids-boys"
+    onclick="filterCategory('kids-boys')">
+
+    BOYS
+
+</button>
+
+
+<button
+    class="category-tab"
+    data-category="kids-girls"
+    onclick="filterCategory('kids-girls')">
+
+    GIRLS
+
+</button>
+
+
+            <button
+                class="category-tab"
+                data-category="offers"
+                onclick="filterCategory('offers')">
+
+                OFFERS
+
+            </button>
+
+        </div>
+
+
+
+        <div class="product-count">
+
+            <strong id="productCount">
+                1 Product
+            </strong>
+
+        </div>
+
+
+
+        <!-- ================= PRODUCTS GRID ================= -->
+
+        <div
+            class="products-grid"
+            id="productsGrid">
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<!-- ================= CART OVERLAY ================= -->
+
+<div
+    id="cartOverlay"
+    class="cart-overlay"
+    onclick="closeCart()">
+
+</div>
+
+
+
+<!-- ================= SHOPPING BAG ================= -->
+
+<div
+    id="cartSidebar"
+    class="cart-sidebar">
+
+
+    <div class="cart-header">
+
+        <h2>
+            Shopping Bag
+        </h2>
+
+        <button onclick="closeCart()">
+            ×
+        </button>
+
+    </div>
+
+
+    <div
+        id="cartItems"
+        class="cart-items">
+
+    </div>
+
+
+    <div class="cart-bottom">
+
+        <div class="cart-total">
+
+            <span>
+                Total
+            </span>
+
+            <strong id="cartTotal">
+                0 EGP
+            </strong>
+
+        </div>
+
+
+        <button
+            class="whatsapp-order"
+            onclick="confirmOrder()">
+
+            <i class="fa-brands fa-whatsapp"></i>
+
+            Confirm Order via WhatsApp
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-container">
+
+
+        <div class="footer-column">
+
+            <img
+                src="logo.png"
+                alt="Outlet Factory"
+                class="footer-logo">
+
+            <p>
+                Premium Quality. Best Prices. Everyday.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                QUICK LINKS
+            </h4>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="index.html#about">
+                About Us
+            </a>
+
+            <a href="index.html#contact">
+                Contact
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                CONTACT INFO
+            </h4>
+
+            <a
+                href="https://wa.me/201010040888"
+                target="_blank">
+
+                <i class="fa-brands fa-whatsapp"></i>
+                +20 101 004 0888
+
+            </a>
+
+
+            <a href="mailto:support@outletfactory.eg">
+
+                <i class="fa-solid fa-envelope"></i>
+                support@outletfactory.eg
+
+            </a>
+
+
+            <a
+                href="https://maps.app.goo.gl/UzMBSrTcFnhgkeBr7"
+                target="_blank">
+
+                <i class="fa-solid fa-location-dot"></i>
+                6 October - Central Axis
+
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                FOLLOW US
+            </h4>
+
+            <div class="social-icons">
+
+                <a
+                    href="https://www.facebook.com/share/193TJGwQ8N/"
+                    target="_blank">
+
+                    <i class="fa-brands fa-facebook-f"></i>
+
+                </a>
+
+
+                <a
+                    href="https://www.instagram.com/outletfactoryegypt"
+                    target="_blank">
+
+                    <i class="fa-brands fa-instagram"></i>
+
+                </a>
+
+
+                <a
+                    href="https://www.threads.com/@outletfactoryegypt"
+                    target="_blank">
+
+                    <i class="fa-brands fa-threads"></i>
+
+                </a>
+
+
+                <a
+                    href="https://wa.me/201010040888"
+                    target="_blank">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 Outlet Factory Egypt.
+        All Rights Reserved.
+
+        <h3>
+            Done by: ENG Roaa Derbala
+        </h3>
+
+    </div>
+
+</footer>
+
+
+
+<script src="products.js"></script>
+
+</body>
+
+</html>
